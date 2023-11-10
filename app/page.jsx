@@ -1,9 +1,9 @@
-import Lists from "../components/Lists";
+import AddLists from "./addLists/page";
 export default function Home() {
   return (
     <div>
-      <h1>home page, but for now it behaves as an edit page!</h1>
-      <Lists />
+      <h1> this page is a demo for editing lists. you can add and delete items.</h1>
+      <AddLists />
     </div>
   );
 }
