@@ -1,13 +1,13 @@
-"use client";
+// "use client";
 
-import { HiOutlineTrash } from "react-icons/hi";
+// import { HiOutlineTrash } from "react-icons/hi";
 
 
-export default function RemoveBtn() {
+// export default function RemoveBtn() {
  
-  return (
-    <button onClick={removeTopic} className="text-red-400">
-      <HiOutlineTrash size={24} />
-    </button>
-  );
-}
+//   return (
+//     <button onClick={removeTopic} className="text-red-400">
+//       <HiOutlineTrash size={24} />
+//     </button>
+//   );
+// }
