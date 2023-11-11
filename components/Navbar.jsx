@@ -6,8 +6,15 @@ export default function Navbar() {
       <Link className="text-white font-bold" href={"/"}>
         Gongbu
       </Link>
-      <Link className="bg-white p-2" href={"/addLists"}>
-        Add Lists
+      <Link className="bg-white p-2" href={"/showLists"}>
+        My Lists
+      </Link>
+   
+      <Link className="bg-white p-2" href={"/login"}>
+        Login
+      </Link>
+      <Link className="bg-white p-2" href={"/register"}>
+        Register
       </Link>
     </nav>
   );

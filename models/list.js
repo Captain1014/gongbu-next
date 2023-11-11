@@ -1,15 +1,16 @@
-// import mongoose, { Schema } from "mongoose";
+// models/list.js
+import mongoose, { Schema } from "mongoose";
 
-// const listSchema = new Schema(
-//   {
-//     korean: String,
-//     meaning: String,
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
+const listSchema = new Schema(
+  {
+    korean: String,
+    meaning: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-// const List = mongoose.models.List || mongoose.model("List", listSchema);
+const List = mongoose.models.List || mongoose.model("List", listSchema);
 
-// export default List;
+export default List;

@@ -1,14 +1,15 @@
-// // mongodb.js
+// libs/mongodb.js
+import mongoose from "mongoose";
+const MONGODB_URI="mongodb+srv://leahchung99:adminChung@cluster0.nsspakv.mongodb.net/?retryWrites=true&w=majority";
 
-// import mongoose from "mongoose";
+const connectMongoDB = async () => {
+  try {
+    await mongoose.connect(MONGODB_URI);
+    console.log("Connected to MongoDB");
+   
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+};
 
-// const connectMongoDB = () => {
-//   try {
-//     mongoose.connect(process.env.MONGODB_URL);
-//     console.log("Connected to MongoDB.");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export default connectMongoDB;
+export default connectMongoDB;

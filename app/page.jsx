@@ -1,9 +1,11 @@
-import AddLists from "./addLists/page";
+import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <div>
-      <h1> this page is a demo for editing lists. you can add and delete items.</h1>
-      <AddLists />
+      
+      <h1>Gongbu, Korean Learing App</h1>
+   
+      
     </div>
   );
 }
