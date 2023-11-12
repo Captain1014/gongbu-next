@@ -26,8 +26,10 @@ export default async function Lists() {
   const {lists} = await getLists();
   return (
     <>
+    
     {lists.map(list=> (
-      <div>
+      <div
+      key={list._id}>
         <div>
           <h2>{list.korean}</h2>
           <div>{list.meaning}</div>
