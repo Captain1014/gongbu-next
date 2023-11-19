@@ -1,3 +1,4 @@
+// Updating the list
 import connectMongoDB from "@/libs/mongodb";
 import List from "@/models/list";
 import { NextResponse } from "next/server";

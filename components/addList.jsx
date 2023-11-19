@@ -1,12 +1,12 @@
-"use client";
+// use client
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getSession } from "next-auth"; // Import getSession
 
 export default function AddList() {
   const [korean, setKorean] = useState("");
   const [meaning, setMeaning] = useState("");
-
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -18,12 +18,20 @@ export default function AddList() {
     }
 
     try {
+      const session = await getSession();
+      
+      if (!session) {
+        // Handle the case where the user is not authenticated
+        alert("You need to log in to create a list");
+        return;
+      }
+
       const res = await fetch("http://localhost:3000/api/lists", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ korean, meaning }),
+        body: JSON.stringify({ korean, meaning, user: session.user.id }), // Include the user ID in the request payload
       });
 
       if (res.ok) {
@@ -45,7 +53,7 @@ export default function AddList() {
         value={korean}
         className="border border-slate-500 px-8 py-2"
         type="text"
-        placeholder="Enter a Korean word"
+        placeholder="Enter a word"
       />
 
       <input
@@ -58,7 +66,7 @@ export default function AddList() {
 
       <button
         type="submit"
-        className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
+        className="bg-blue-400 font-bold text-white py-3 px-6 w-fit"
       >
         Add
       </button>

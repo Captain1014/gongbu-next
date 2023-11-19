@@ -50,7 +50,7 @@ export default function EditListsorm({ id, korean, meaning }) {
         placeholder="Meaning"
       />
 
-      <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
+      <button className="bg-blue-500 font-bold text-white py-3 px-6 w-fit">
         Update
       </button>
     </form>

@@ -1,10 +1,17 @@
-export default function Register() {
-    return (
-      <div>
-        <h1>Gongbu, Korean Learing App</h1>
-     <h1>Register page</h1>
-        
-      </div>
-    );
+import RegisterForm from "@/components/RegisterForm";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+export default async function Register() {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+   redirect("/dashboard");
+    
   }
-  
+  return (
+    <div>
+      <RegisterForm />
+    </div>
+  );
+}

@@ -1,49 +1,28 @@
 
-
-import Link from "next/link";
-import RemoveBtn from "./RemoveBtn";
-import { HiPencilAlt } from "react-icons/hi";
+import React from 'react';
+import { getLists } from './GetLists';
 
 
-const getLists = async() => {
-  try {
-    const res = await fetch('http://localhost:3000/api/lists', {
-      cache: 'no-store',
-    });
 
-    if(!res.ok) {
-      throw new Error('Failed to fetch');
-    }
-    return res.json();
-  } catch (error) {
-console.log("Error loading lists:", error);
-  }
-}
+async function Lists({lists}){
+  
 
 
-export default async function Lists() {
-
-  const {lists} = await getLists();
   return (
     <>
-    
-    {lists.map(list=> (
-      <div
-      key={list._id}>
-        <div>
-          <h2>{list.korean}</h2>
-          <div>{list.meaning}</div>
+      {lists.map((list, index) => (
+        <div
+          key={index}
+          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
+        >
+          <div>
+            <h2 id="read-word">{list.korean}</h2>
+            <h2>{list.meaning}</h2>
+          </div>
         </div>
-        <div>
-          <RemoveBtn />
-          <Link href={`/editLists/${list._id}`}>
-            
-              <HiPencilAlt size={24} />
-            
-          </Link>
-        </div>
-      </div>
-    ))}
+      ))}
     </>
   );
-}
+};
+
+export default Lists;

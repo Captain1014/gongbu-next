@@ -1,9 +1,21 @@
-export default function Login() {
+import LoginForm from "@/components/LoginForm";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+
+export default async function Login() {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    redirect("/dashboard");
+     
+   }
     return (
       <div>
-        <h1>Gongbu, Korean Learing App</h1>
+       
      <h1>Login page</h1>
-        
+        <LoginForm />
+
       </div>
     );
   }
