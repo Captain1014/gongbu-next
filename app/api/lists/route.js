@@ -55,7 +55,7 @@ export async function POST(request) {
     {
       status: 201,
       headers: {
-        "Access-Control-Allow-Origin":  "https://gongbu-next-n3h0uq0g6-captain1014s-projects.vercel.app/",
+        "Access-Control-Allow-Origin":  "gongbu-next-1g80us33w-captain1014s-projects.vercel.app",
 
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
@@ -72,7 +72,7 @@ export async function GET() {
     { lists },
     {
       headers: {
-        "Access-Control-Allow-Origin":  "https://gongbu-next-n3h0uq0g6-captain1014s-projects.vercel.app/",
+        "Access-Control-Allow-Origin":  "gongbu-next-1g80us33w-captain1014s-projects.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
@@ -90,7 +90,7 @@ export async function DELETE(request) {
     {
       status: 200,
       headers: {
-        "Access-Control-Allow-Origin":  "https://gongbu-next-n3h0uq0g6-captain1014s-projects.vercel.app/",
+        "Access-Control-Allow-Origin":  "gongbu-next-1g80us33w-captain1014s-projects.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
@@ -105,7 +105,7 @@ export async function OPTIONS(request) {
     {
       status: 200,
       headers: {
-        "Access-Control-Allow-Origin":  "https://gongbu-next-n3h0uq0g6-captain1014s-projects.vercel.app/",
+        "Access-Control-Allow-Origin":  "gongbu-next-1g80us33w-captain1014s-projects.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
