@@ -26,8 +26,9 @@ export default function EditListsorm({ id, korean, meaning }) {
         throw new Error("Failed to update lists");
       }
 
-      router.refresh();
+      
       router.push("/showLists");
+      router.refresh();
     } catch (error) {
       console.error("Error updating list:", error);
       
