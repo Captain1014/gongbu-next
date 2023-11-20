@@ -1,8 +1,9 @@
 import EditListsForm from "@/components/EditListsForm";
+const API_BASE_URL = process.env.NODE_ENV === 'production' ? 'https://gongbu-next.vercel.app' : 'http://localhost:3000';
 
 const getListById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/lists/${id}`, {
+    const res = await fetch(`${API_BASE_URL}/api/lists/${id}`, {
       cache: "no-store",
     });
 
