@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth"; // Import getSession
 
+const API_BASE_URL = process.env.NODE_ENV === 'production' ? 'https://gongbu-next.vercel.app' : 'http://localhost:3000';
+
+
 export default function AddList() {
   const [korean, setKorean] = useState("");
   const [meaning, setMeaning] = useState("");
@@ -25,7 +28,7 @@ export default function AddList() {
       //   return;
       // }
 
-      const res = await fetch("http://localhost:3000/api/lists", {
+      const res = await fetch(`${API_BASE_URL}/api/lists`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -34,7 +37,9 @@ export default function AddList() {
       });
 
       if (res.ok) {
-        router.refresh();
+     
+   router.refresh();
+       
         setKorean("");
         setMeaning("");
       } else {
