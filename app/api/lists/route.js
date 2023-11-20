@@ -50,14 +50,18 @@ export async function POST(request) {
   await connectMongoDB();
   await List.create({ korean, meaning });
 
-  return NextResponse.json({ message: "List Created" }, { 
-    status: 201,
-    headers: {
-      'Access-Control-Allow-Origin': 'https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    },
-  });
+  return NextResponse.json(
+    { message: "List Created" },
+    {
+      status: 201,
+      headers: {
+        "Access-Control-Allow-Origin":
+          "https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
+  );
 }
 
 export async function GET() {
@@ -69,7 +73,7 @@ export async function GET() {
     {
       headers: {
         "Access-Control-Allow-Origin":
-          "https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app",
+          "https://gongbu-next-git-master-captain1014s-projects.vercel.app/",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
@@ -82,12 +86,16 @@ export async function DELETE(request) {
   await connectMongoDB();
   await List.findByIdAndDelete(id);
 
-  return NextResponse.json({ message: "List deleted" }, {
-    status: 200,
-    headers: {
-      'Access-Control-Allow-Origin': 'https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    },
-  });
+  return NextResponse.json(
+    { message: "List deleted" },
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin":
+          "https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
+  );
 }
