@@ -160,7 +160,7 @@ import { HiPencilAlt } from "react-icons/hi";
 import RemoveBtn from "@/components/RemoveBtn";
 import AddList from "@/components/addList";
 import { HiVolumeUp } from "react-icons/hi";
-import Lists from "@/components/Lists";
+
 // Function to start text-to-speech
 
 const speechHandler = (text) => {

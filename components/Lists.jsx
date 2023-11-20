@@ -1,3 +1,5 @@
+// i don't use this for showLists.
+
 import React from "react";
 
 const GetLists = async () => {
@@ -12,20 +14,16 @@ const GetLists = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading lists:", error);
-    
   }
 };
 
-export default async function Lists (){
+export default async function Lists() {
   const { lists } = await GetLists();
-  
+
   return (
     <>
       {lists.map((list) => (
-        <div
-          key={list._id}
-          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
-        >
+        <div key={list._id} className="p-4 border border-slate-400 my-1">
           <div>
             <h2 id="read-word">{list.korean}</h2>
             <h2>{list.meaning}</h2>
@@ -34,5 +32,4 @@ export default async function Lists (){
       ))}
     </>
   );
-};
-
+}
