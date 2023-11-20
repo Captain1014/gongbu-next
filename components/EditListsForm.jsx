@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+const API_BASE_URL = process.env.NODE_ENV === 'production' ? 'https://gongbu-next.vercel.app' : 'http://localhost:3000';
 
 export default function EditListsorm({ id, korean, meaning }) {
   const [newKorean, setNewKorean] = useState(korean);
@@ -13,7 +14,7 @@ export default function EditListsorm({ id, korean, meaning }) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/lists/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/lists/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
