@@ -99,16 +99,16 @@ export async function DELETE(request) {
 }
 
 // OPTIONS handler
-// export async function OPTIONS(request) {
-//   return NextResponse.json(
-//     {},
-//     {
-//       status: 200,
-//       headers: {
-//         "Access-Control-Allow-Origin":  "gongbu-next-1g80us33w-captain1014s-projects.vercel.app",
-//         "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
-//         "Access-Control-Allow-Headers": "Content-Type",
-//       },
-//     }
-//   );
-// }
+export async function OPTIONS(request) {
+  return NextResponse.json(
+    {},
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin":  "*",
+        "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
+  );
+}
