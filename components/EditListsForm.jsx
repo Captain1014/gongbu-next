@@ -28,7 +28,8 @@ export default function EditListsorm({ id, korean, meaning }) {
       router.refresh();
       router.push("/showLists");
     } catch (error) {
-      console.log(error);
+      console.error("Error updating list:", error);
+      
     }
   };
 

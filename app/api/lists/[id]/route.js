@@ -6,22 +6,30 @@ import { NextResponse } from "next/server";
 await connectMongoDB();
 
 export async function PUT(request, { params }) {
-  const { id } = params;
-  const { newKorean: korean, newMeaning: meaning } = await request.json();
-  // await connectMongoDB();
-  await List.findByIdAndUpdate(id, { korean, meaning });
-  return NextResponse.json(
-    { message: "List updated" },
-    { status: 200 },
+  try {
+    const { id } = params;
+    const { newKorean: korean, newMeaning: meaning } = await request.json();
+    // await connectMongoDB();
+    await List.findByIdAndUpdate(id, { korean, meaning });
+    return NextResponse.json(
+      { message: "List updated" },
+      { status: 200 },
 
-    {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-    }
-  );
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      }
+    );
+  } catch (error) {
+    console.error("Error updating list:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
 }
 
 export async function GET(request, { params }) {
@@ -49,7 +57,7 @@ export async function OPTIONS(request) {
     {
       status: 200,
       headers: {
-        "Access-Control-Allow-Origin":  "*",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
