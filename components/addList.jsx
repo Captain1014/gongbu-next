@@ -1,5 +1,4 @@
-// use client
-
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth"; // Import getSession
@@ -18,20 +17,20 @@ export default function AddList() {
     }
 
     try {
-      const session = await getSession();
-      
-      if (!session) {
-        // Handle the case where the user is not authenticated
-        alert("You need to log in to create a list");
-        return;
-      }
+      // const session = await getSession();
+
+      // if (!session) {
+      //   // Handle the case where the user is not authenticated
+      //   alert("You need to log in to create a list");
+      //   return;
+      // }
 
       const res = await fetch("http://localhost:3000/api/lists", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ korean, meaning, user: session.user.id }), // Include the user ID in the request payload
+        body: JSON.stringify({ korean, meaning }), // Include the user ID in the request payload
       });
 
       if (res.ok) {

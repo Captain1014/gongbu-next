@@ -1,6 +1,4 @@
-// app/playGame/page.jsx
-
-import { getLists } from '@/components/GetLists';
+// app/playGame/page.j
 import Lists from '@/components/Lists';
 
 export default function PlayGame() {
