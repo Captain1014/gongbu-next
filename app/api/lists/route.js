@@ -56,7 +56,7 @@ export async function POST(request) {
       status: 201,
       headers: {
         "Access-Control-Allow-Origin":
-          "https://gongbu-next-git-master-captain1014s-projects.vercel.app/",
+          "*",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
@@ -73,7 +73,7 @@ export async function GET() {
     {
       headers: {
         "Access-Control-Allow-Origin":
-          "https://gongbu-next-git-master-captain1014s-projects.vercel.app/",
+          "*",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
@@ -92,7 +92,7 @@ export async function DELETE(request) {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin":
-          "https://gongbu-next-git-master-captain1014s-projects.vercel.app/",
+          "*",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
