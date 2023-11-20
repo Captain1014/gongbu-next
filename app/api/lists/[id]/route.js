@@ -17,6 +17,16 @@ export async function GET(request, { params }) {
     const { id } = params;
     // await connectMongoDB();
     const list = await List.findOne({_id: id});
-    return NextResponse.json({list}, { status: 200 });
+    return NextResponse.json({list}, { status: 200 }, 
+      
+        {
+          headers: {
+            "Access-Control-Allow-Origin":  "*",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type",
+          },
+        }
+      
+      );
   }
   
