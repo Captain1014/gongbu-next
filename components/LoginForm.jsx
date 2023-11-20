@@ -60,6 +60,10 @@ export default function LoginForm() {
 
           <Link className="text-sm mt-3 text-right" href={"/register"}>
             Don't have an account? <span className="underline">Register</span>
+            </Link>
+            <Link className="text-sm mt-3 text-right" href={"/showLists"}>
+          
+            You can stil study without an account. <span className="underline">Click here to study!</span>
           </Link>
         </form>
       </div>
