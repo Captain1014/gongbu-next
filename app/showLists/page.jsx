@@ -152,7 +152,7 @@
 // }
 
 import React from "react";
-
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -169,24 +169,45 @@ const speechHandler = (text) => {
   speechSynthesis.speak(utterance);
 };
 
-const getLists = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/lists", {
-      cache: "no-store",
-    });
+// const getLists = async () => {
+//   try {
+//     const res = await fetch("http://localhost:3000/api/lists", {
+//       cache: "no-store",
+//     });
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch topics");
-    }
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch topics");
+//     }
 
-    return res.json();
-  } catch (error) {
-    console.log("Error loading topics: ", error);
-  }
-};
+//     return res.json();
+//   } catch (error) {
+//     console.log("Error loading topics: ", error);
+//   }
+// };
+const ShowLists = () => {
+  // const { lists } = await getLists();
+  const [lists, setLists] = useState([]);
 
-export default async function ShowLists() {
-  const { lists } = await getLists();
+  useEffect(() => {
+    const fetchLists = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/lists", {
+          cache: "no-store",
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch lists");
+        }
+
+        const { lists } = await res.json();
+        setLists(lists);
+      } catch (error) {
+        console.error("Error loading lists: ", error);
+      }
+    };
+
+    fetchLists();
+  }, []);
 
   return (
     <>
@@ -228,3 +249,4 @@ export default async function ShowLists() {
     </>
   );
 }
+export default ShowLists;
