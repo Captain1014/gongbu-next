@@ -1,9 +1,11 @@
 
-// import UserInfo from "@/components/UserInfo";
-// export default function Dashboard() {
-//   return (
+import UserInfo from "@/components/UserInfo";
+export default function Dashboard() {
+  return (
    
-//       <UserInfo />
+      // <UserInfo />
+
+      <h1>dashboard</h1>
    
-//   );
-// }
+  );
+}
