@@ -50,19 +50,31 @@ export async function POST(request) {
   await connectMongoDB();
   await List.create({ korean, meaning });
 
-  // Set CORS headers
-  // request.headers.set('Access-Control-Allow-Origin', 'https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app');
-  // request.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  // request.headers.set('Access-Control-Allow-Headers', 'Content-Type');
-
-  return NextResponse.json({ message: "List Created" }, { status: 201 });
+  return NextResponse.json({ message: "List Created" }, { 
+    status: 201,
+    headers: {
+      'Access-Control-Allow-Origin': 'https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }
 
 export async function GET() {
   await connectMongoDB();
   const lists = await List.find();
 
-  return NextResponse.json({ lists });
+  return NextResponse.json(
+    { lists },
+    {
+      headers: {
+        "Access-Control-Allow-Origin":
+          "https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
+  );
 }
 
 export async function DELETE(request) {
@@ -70,5 +82,12 @@ export async function DELETE(request) {
   await connectMongoDB();
   await List.findByIdAndDelete(id);
 
-  return NextResponse.json({ message: "List deleted" }, { status: 200 });
+  return NextResponse.json({ message: "List deleted" }, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': 'https://gongbu-next-ao53lhj82-captain1014s-projects.vercel.app',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }
