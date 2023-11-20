@@ -41,3 +41,18 @@ export async function GET(request, { params }) {
     }
   );
 }
+
+// OPTIONS handler
+export async function OPTIONS(request) {
+  return NextResponse.json(
+    {},
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin":  "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
+  );
+}
