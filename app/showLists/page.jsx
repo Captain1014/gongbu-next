@@ -184,6 +184,8 @@ const speechHandler = (text) => {
 //     console.log("Error loading topics: ", error);
 //   }
 // };
+const API_BASE_URL = process.env.NODE_ENV === 'production' ? 'https://gongbu-next.vercel.app' : 'http://localhost:3000';
+
 const ShowLists = () => {
   // const { lists } = await getLists();
   const [lists, setLists] = useState([]);
@@ -191,12 +193,13 @@ const ShowLists = () => {
   useEffect(() => {
     const fetchLists = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/lists", {
+        const res = await fetch(`${API_BASE_URL}/api/lists`, {
           cache: "no-store",
         });
 
         if (!res.ok) {
           throw new Error("Failed to fetch lists");
+          
         }
 
         const { lists } = await res.json();
