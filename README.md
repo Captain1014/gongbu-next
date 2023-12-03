@@ -62,7 +62,7 @@ An Example List with Embedded Items:
 
   ![lists edit](documentation/lists-edit.png)
 
-- /list/cards - flash cards
+- /list/playGame - flash cards
 
   ![lists cards](documentation/lists-cards.png)
 
@@ -77,47 +77,41 @@ Here's a basic text-based site map to help you understand the structure of my pr
   - login page
 - **home/register**
   - register page
-- **home/list**
-  - Display the current lists if user logged in
+- **home/showLists
+  - If the user logged in, Display the current list. 
+  - If the user is not logged in, show the login.
   - List 1
   - List 2
   - List 3
   - users can add and delete a list on this page
 - **home/lists/edit**
-  - the query param will be /lists/edit?listID=1
-  - users can add or delete an item of lists on this page
-  - if they add:
-  - user input 1. a korean word
-  - user input 2. the meaning of the korean word
-  - if they delete:
-  - simply click the checkbox next to each item
-  - to save changes:
-  - save button - update the list that users just added or deleted
-- **lists/cards?category=korean-basic-verbs**
-  - Display the korean words of each list as flash cards
-  - Item 1 - korean word
-  - if user clicks the button, show the meaning
-  - Item 1 - it's meaning
-  - Show little animation when they are done with the flash cards
+  - the query param will be /lists/edit?{ID}
+  - Update button - update the item that you just edited.
+  - Users are redirected to this edit page if they click the edit icon on the showLists page.
+- **lists/playGame**
+  - Display the korean words of the list
+  - Click Start button to start the game
+  - Enter the word's meaning
+  - Once you get rid of every item, the game is over
+  - Once the timer is over, the game is over
 
 ## User Stories or Use Cases
 
 1. as non-registered user, I can register a new account at /register
-2. as a user, I can log in to the site at /login
-3. as a user, I can add and delete a list if I logged in
-4. as a user, I can add and delete an item of lists if I logged in
-5. as a user, I can view all of the words lists I've created in a single list
-6. as a user, I can study with the flash cards that I've created
+2. as a user, I can log in to the site at /login or homepage
+3. as a user, I can add and delete an item of the lists if I logged in
+4. as a user, I can view all of the words lists I've created in a single list
+5. as a user, I can play a game with the list.
 
 ## Research Topics
 
 - (5 points) Integrate user authentication
-  - I'm going to be using passport for user authentication
-  - And account has been made for testing; I'll email you the password.
+  - I'm going to be using next.auth for user authentication
+  - Users need to login to access to see the lists or play the game.
 - (2 points) tailwind.css
-  - will learn how to master tailwind.css for better CSS styles. It's also one of the biggest CSS frameworks.
+  - learned how to master tailwind.css for better CSS styles. It's also one of the biggest CSS frameworks.
 - (6 points) React and Next.js
-  - will use React and Next.js overall, they are the biggest and most powerful frameworks combination so I assign 6 points to it.
+  - Used React and Next.js overall, they are the biggest and most powerful frameworks combination so I assign 6 points to it.
 
 13 points total, but max points are 10 so 10 points worth.
 
@@ -125,6 +119,6 @@ Here's a basic text-based site map to help you understand the structure of my pr
 
 ## Annotations / References Used
 
-1. [passport.js authentication docs](http://passportjs.org/docs)
+1. [next auth authentication docs](https://next-auth.js.org/v3/adapters/typeorm/mongodb)
 2. [tutorial on next.js](https://nextjs.org/learn/dashboard-app)
 3. [tutorial on tailwind.css](https://tailwindcss.com/docs/installation)

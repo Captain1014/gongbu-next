@@ -1,9 +1,16 @@
-import Lists from "../components/Lists";
-export default function Home() {
+import LoginForm from "@/components/LoginForm";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+
+export default async function Home() {
+  // const session = await getServerSession(authOptions);
+
+  // if (session) redirect("/dashboard");
+
   return (
-    <div>
-      <h1>home page, but for now it behaves as an edit page!</h1>
-      <Lists />
-    </div>
+    <main>
+      <LoginForm />
+    </main>
   );
 }
