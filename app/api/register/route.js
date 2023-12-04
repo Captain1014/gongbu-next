@@ -11,12 +11,13 @@ export async function POST(req) {
 
     await connectMongoDB();
     await User.create({ name, email, password: hashedPassword });
-    await console.log("user created", _id);
+  
     return NextResponse.json(
       { message: "New User registered" },
       { status: 201 }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ message: "Error occured" }, { status: 500 });
   }
 }

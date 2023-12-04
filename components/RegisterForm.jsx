@@ -44,10 +44,12 @@ export default function RegisterForm() {
           password,
         }),
       });
+      console.log("Response from server:", await res.text());
+  
       if (res.ok) {
         const form = e.target;
         form.reset();
-        router.push("/");
+        router.push("/login");
 
       } else {
         console.log("User registeration failed");
