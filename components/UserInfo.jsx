@@ -2,13 +2,26 @@
 
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 
 export default function UserInfo() {
   const { data: session } = useSession();
+
+  const router = useRouter();
+  const { pathname } = router;
+
   const handleLogout = async () => {
-    await signOut();
+    if (!session && pathname !== "/") {
+      // Only redirect to login if not already on the login route
+      await router.push("/");
+    } else {
+      await signOut();
+      
+    }
     // Additional logic if needed
   };
+
   return (
     <div className="grid place-items-center h-screen">
       <div className="shadow-lg p-8 bg-zince-300/10 flex flex-col gap-2 my-6">
