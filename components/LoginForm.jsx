@@ -67,7 +67,7 @@ export default function LoginForm() {
             </Link>
             <Link className="text-sm mt-3 text-right" href={"/playGame"}>
           
-            You can stil play game without an account. <span className="underline">Play Game!</span>
+            You can stil play game without an account. <span className="underline">Click here to play!</span>
           </Link>
         </form>
       </div>
