@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center bg-blue-400 px-4 py-3 md:px-8">
-      <Link href="/dashboard">
+      <Link href="/">
         <div className="text-white font-bold text-lg md:text-xl cursor-pointer">
           Gongbu
         </div>
