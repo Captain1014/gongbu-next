@@ -28,13 +28,17 @@ export default function LoginForm() {
       }
 
       router.replace("dashboard");
+      router.refresh();
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
+   
+   
     <div className="grid place-items-center h-screen">
+       <h1>Login to access to the Lists!</h1> 
       <div className="shadow-lg p-5 rounded-lg border-t-4 border-green-400">
         <h1 className="text-xl font-bold my-4">Login</h1>
 
@@ -61,9 +65,9 @@ export default function LoginForm() {
           <Link className="text-sm mt-3 text-right" href={"/register"}>
             Don&apos;t have an account? <span className="underline">Register</span>
             </Link>
-            <Link className="text-sm mt-3 text-right" href={"/showLists"}>
+            <Link className="text-sm mt-3 text-right" href={"/playGame"}>
           
-            You can stil study without an account. <span className="underline">Click here to study!</span>
+            You can stil play game without an account. <span className="underline">Play Game!</span>
           </Link>
         </form>
       </div>

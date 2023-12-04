@@ -8,7 +8,7 @@ const API_BASE_URL =
 
 const PlayGame = () => {
   const [gameStarted, setGameStarted] = useState(false);
-  const [congratsMessage, setCongratsMessage] = useState(false);
+ 
 
   const startGame = () => {
     setGameStarted(true);
@@ -52,11 +52,9 @@ const PlayGame = () => {
             } else {
               clearInterval(countdown);
               setGameStarted(false);
-              if (lists.length === 0) {
-                setCongratsMessage(true);
-              } else {
+              if (lists.length !== 0) {
                 alert("Game Over!");
-              }
+              } 
               return 0;
             }
           });
@@ -70,9 +68,7 @@ const PlayGame = () => {
       e.preventDefault();
       const meaning = input.trim().toLowerCase();
 
-      // Check if the entered answer is correct
-      const isCorrect = lists.some((list) => list.meaning.toLowerCase() === meaning);
-
+      
       // Update the 'hidden' property based on input
       const updatedLists = lists.filter((list) => {
         return meaning === "" || list.meaning.toLowerCase() !== meaning;
@@ -87,8 +83,10 @@ const PlayGame = () => {
      
         // Check if there are no items left in lists
         if (updatedLists.length === 0) {
-          alert("You got them all correct! You got this!");
+          alert("You got them all correct!");
           setShowForm(false);
+
+        
         }
      
 
@@ -96,7 +94,7 @@ const PlayGame = () => {
 
     return (
       <div className="flex flex-col">
-        <p>Timer: {timer} seconds</p>
+       {showForm && <p>Timer: {timer} seconds</p>}
 
         <div className="w-full h-full">
           {lists.map((list) => (
@@ -130,7 +128,7 @@ const PlayGame = () => {
          {!showForm && (
           <div>
            
-            <h1>Wanna play again? Refresh the page.</h1>
+            <h1 className="p-4 bg-blue-200 font-bold text-white ">Wanna play again? Refresh the page.</h1>
           </div>
         )}
 
@@ -142,7 +140,10 @@ const PlayGame = () => {
 
   return (
     <div>
-      <h1>Welcome to the Game!</h1>
+      <h1 className="p-4">Welcome to the Game!</h1>
+     <p className="p-4">Enter the meaning of the word in English before the timer is over.</p>
+     <p className="p-4">Hint for the graders: the answers are *hello* and *good bye* (the order does not matter)</p>
+
       {!gameStarted && (
         <button
           className="p-4 border border-blue-300 my-3 flex justify-between gap-5 items-start"

@@ -3,13 +3,13 @@ import Link from 'next/link';
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center bg-blue-400 px-4 py-3 md:px-8">
-      <Link href="/">
+      <Link href="/dashboard">
         <div className="text-white font-bold text-lg md:text-xl cursor-pointer">
           Gongbu
         </div>
       </Link>
       <div className="hidden md:flex space-x-4">
-        <NavLink href="/showLists">My Lists</NavLink>
+        <NavLink href="/checkLogin">Lists</NavLink>
         <NavLink href="/playGame">Play Game</NavLink>
         <NavLink href="/login">Login</NavLink>
         <NavLink href="/register">Register</NavLink>

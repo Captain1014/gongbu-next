@@ -10,6 +10,8 @@ import RemoveBtn from "@/components/RemoveBtn";
 import AddList from "@/components/addList";
 import { HiVolumeUp } from "react-icons/hi";
 
+
+
 // Function to start text-to-speech
 
 const speechHandler = (text) => {
@@ -18,25 +20,17 @@ const speechHandler = (text) => {
   speechSynthesis.speak(utterance);
 };
 
-// const getLists = async () => {
-//   try {
-//     const res = await fetch("http://localhost:3000/api/lists", {
-//       cache: "no-store",
-//     });
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://gongbu-next.vercel.app"
+    : "http://localhost:3000";
 
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch topics");
-//     }
+const ShowLists = ({session}) => {
+// check if user is logged in.
+// if logged in, allow access to this page.
+// if not logged in, redirect to /login page
+  
 
-//     return res.json();
-//   } catch (error) {
-//     console.log("Error loading topics: ", error);
-//   }
-// };
-const API_BASE_URL = process.env.NODE_ENV === 'production' ? 'https://gongbu-next.vercel.app' : 'http://localhost:3000';
-
-const ShowLists = () => {
-  // const { lists } = await getLists();
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
@@ -45,12 +39,9 @@ const ShowLists = () => {
         const res = await fetch(`${API_BASE_URL}/api/lists`, {
           cache: "no-store",
         });
-       
 
         if (!res.ok) {
-         
           throw new Error("Failed to fetch lists");
-          
         }
 
         const { lists } = await res.json();
@@ -102,7 +93,9 @@ const ShowLists = () => {
       ))}
     </>
   );
-}
+};
+
+
 
 
 export default ShowLists;
